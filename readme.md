@@ -32,7 +32,7 @@ Example of usage
 ```
 
 - JS
-$('#edit').editableText()
+```html $('#edit').editableText() ```
 
 -CSS 
 ```html
