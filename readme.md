@@ -5,9 +5,9 @@ The plugin is used for catching user's location via his IP address. Features inc
 How to list a plugin
 
 Html document should include:
- - <code><div></code> tag with a unique id, where you bind a plugin 
- - <code><a></code> tag with the name of the default location
- - <code><span></code> tag with the edit logo 
+ - <div> tag with a unique id, where you bind a plugin 
+ - <a> tag with the name of the default location
+ - <span> tag with the edit logo 
 
 
 Development
@@ -23,11 +23,11 @@ Include the link to jquery.editableText.js in your html file, initiate the plugi
 Example of usage
 
 - HTML
-<code><div id="edit">
+<div id="edit">
     <a>Loading... </a>
     <span> <img id="icon" src="path-to-your-image"/>
     </span>
-</div></code>
+</div>
 
 - JS
 $('#edit').editableText()
