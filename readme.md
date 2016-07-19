@@ -23,7 +23,7 @@ Include the link to jquery.editableText.js in your html file, initiate the plugi
 Example of usage
 
 - HTML
-- ```html
+```html
 <div id="edit">
     <a>Loading... </a>
     <span> <img id="icon" src="path-to-your-image"/>
