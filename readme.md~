@@ -1,0 +1,32 @@
+How it works
+
+The plugin is used for catching user's location via his IP address. Features include the possibility to manually edit the default location with a mouse click. 
+
+How to list a plugin
+
+Html document should include:
+ - <div> tag with a unique id, where you bind a plugin 
+ - <a> tag with the name of the default location
+ - <span> tag with the edit logo 
+
+
+Development
+
+Requires
+
+ - jQuery 3.0.0
+ - Jquery-ui.min.js
+ - Jquery-ui.css
+
+Include the link to jquery.editableText.js in your html file, initiate the plugin in you js file (i.e. $('#edit').editableText()) and enjoy!
+
+UPD:
+
+To be included in the later version:
+ - 
+ - 
+
+
+
+
+
