@@ -32,9 +32,11 @@ Example of usage
 ```
 
 - JS
-```html $('#edit').editableText() ```
+```html 
+$('#edit').editableText()
+```
 
--CSS 
+- CSS 
 ```html
 
 //Not necessary. You can customize the elements as you wish
