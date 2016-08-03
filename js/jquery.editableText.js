@@ -1,13 +1,13 @@
 (function( $ ) {
     $.fn.editableText = function (div) {
 
-        input = $("<input type='text' id='dest_input' placeholder='Type location name' required=''>");
-        button = $("<button type='submit' value='Submit' id='dest_submit'>Submit</button>");
-        edit = $(div).html();
-        divClone = $('div').clone();
 
-        pencil = $('span').html();
-        value = $("input:text").val();
+        var $locationInput = $("<input type='text' id='dest_input' placeholder='Type location name' required=''>"),
+        $submitButton = $("<button type='submit' value='Submit' id='dest_submit'>Submit</button>"),
+        $locationLink = $("<a>Loading... </a>"),
+        $editIcon = $("<span> <img id='icon' src='https://maxcdn.icons8.com/office/PNG/40/Editing/pencil-40.png'/> </span>");
+
+        $(this).append($locationLink, $editIcon);
 
         //getting user's location via IP
 
@@ -18,17 +18,16 @@
         $('span').show();
 
         //edit location
-        $('a').click(function (e) {
+        $($(this).children('a')).click(function (e) {
 
-            $('a').after(input, button);
-            $(input).show();
-            $(button).show();
-            $('a').hide();
-
-
+            $(this).after($locationInput, $submitButton);
+            $(this).show();
+            $($submitButton).show();
+            $($locationInput).show();
+            $(this).hide();
 
             //Loctaion city autocomplete
-            $('input').autocomplete({
+            $(this).next().autocomplete({
 
                 source: function (request, response) {
                     $.getJSON(
@@ -52,42 +51,32 @@
                     $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
                 }
             });
-            $('input').autocomplete("option", "delay", 100);
+            $(this).next().autocomplete("option", "delay", 100);
 
-            $( 'input' ).focus();
+            $(this).next().focus();
             $('span').slideToggle();
 
-
             // Submit your location
-            $("#dest_submit").click(function () {
-                    var value = $("input:text").val();
-                    $(this).value = value;
-                    var fired = true;
-
-
-
+            $(this).nextAll('button').click(function () {
+                var value = $("input:text").val();
+                $(this).prevAll('a').value = value;
+                var fired = true;
 
                     if (value.length !== 0) {
-                        $(input).hide();
-                        $(button).hide();
-                        $('span').show();
-                        $('a').show().text(value);
+                        $(this).prev().hide();
+                        $(this).hide();
+                        $(this).nextAll('span').show();
+                        $(this).prevAll('a').show().text(value);
                         $(value).show();
-                        $('#valid').hide();
-
+                        // $('#valid').hide();
 
                     } else if ((value.length === 0) && fired) {
 
-                            $(input).css("border", "solid 1px red");
+                            $(this).prev().css("border", "solid 1px red");
                             // $(button).after("<p id='valid'>This field is required</p>");
                             fired = false;
-
-
                     }
-
                 });
-
         });
-
     }
 })(jQuery);
